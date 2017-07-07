@@ -29,10 +29,57 @@ public class Exercise1 {
 			}else{
 				nodeData.name = input.next();
 			    nodeData.age = input.nextInt();
+			    /**
+			     * 尾部添加节点
+			     */
 			    head =  CL.CLAddEnd(head, nodeData);
 			}
 		}while(true);
 		CL.CLAllNode(head);
+		
+		/**
+		 * 插入节点
+		 */
+//		System.err.println("\n演示插入节点,输入插入位置的关键字: ");
+//		findkey = input.next();
+//		System.out.println("输入插入节点的数据(关键字 姓名 年龄):");
+//		DATA2 nodeData = new DATA2();
+//		nodeData.key = input.next();
+//		nodeData.name= input.next();
+//		nodeData.age = input.nextInt();
+//		head = CL.CLInsertNode(head, findkey, nodeData);
+//		CL.CLAllNode(head);
+		
+		/**
+		 * 删除节点
+		 */
+//		System.out.println("\n演示删除节点,输入要删除的关键字");
+//		key = input.next();
+//		CL.CLDeleteNode(head, key);
+//		CL.CLAllNode(head);
+		
+		/**
+		 * 查找节点
+		 */
+		System.out.println("\n演示在链表中查找,输入查找的关键字:");
+		key = input.next();
+		node = CL.CLFindNode(head, key);
+		if(node!=null){
+			DATA2 nodeData = node.nodeData;
+			System.err.println(nodeData.key+"/"+nodeData.name+"/"+nodeData.age);
+			
+		}else{
+			System.out.println("未查询到关键字为"+key+"的节点");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
 
