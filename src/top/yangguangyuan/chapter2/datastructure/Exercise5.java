@@ -41,7 +41,86 @@ class P2_5{
 	 * 添加节点
 	 */
 	void addTreeNode(CBTType treeNode){
+		CBTType pnode,parent;
+		String data;
+		int menusel;
 		
+		if((pnode=new CBTType())!=null){
+			System.out.println("输入二叉树的节点数据");
+			pnode.data = input.next();
+			pnode.right = null;
+			pnode.left = null;
+			
+			System.out.println("输入该节点的父节点数据");
+			data = input.next();
+			parent = TreeFindNode(treeNode,data);
+			
+			if(parent==null){
+				System.out.println("未找到该父节点");
+				pnode = null;
+				return;
+			}
+			
+			System.out.println("1.添加该节点左子树 2.添加该节点的右子树");
+			do{
+				menusel = input.nextInt();
+				if(menusel==1||menusel==2){
+					if(parent==null){
+						System.out.println("不存在父节点,请先设置父节点");
+					}else{
+						switch (menusel) {
+						case 1:
+							if(parent.left!=null){
+								System.out.println("左子树节点不为空");
+							}else{
+								parent.left = pnode;
+							}
+							break;
+						
+						case 2:
+							if(parent.right!=null){
+								System.out.println("右子树的节点不为空");
+							}else{
+								parent.right = pnode;
+							}
+							break;
+						default:
+							System.out.println("参数无效");
+						}
+					}
+				}
+				
+				
+				
+			}while(menusel!=1&&menusel!=2);
+		}
+	}
+
+	/**
+	 * @Title: TreeFindNode 
+	 * @Description: (查找节点) 
+	 * @param treeNode
+	 * @param data
+	 * @return
+	 * @return CBTType 返回类型
+	 */
+	CBTType TreeFindNode(CBTType treeNode, String data) {
+		CBTType ptr;
+		if(treeNode==null){
+			return null;
+		}else{
+			if(treeNode.data.equals(data)){
+				return treeNode;
+			}else{
+				if((ptr=TreeFindNode(treeNode.left, data))!=null){
+					return ptr;
+				}else if((ptr=TreeFindNode(treeNode.right, data))!=null){
+					return ptr;
+				}else{
+					return null;
+				}
+			}
+		}
 	}
 	
 }
