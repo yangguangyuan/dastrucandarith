@@ -123,4 +123,42 @@ class P2_5{
 		}
 	}
 	
+	/**
+	 * 获取左子树
+	 */
+	CBTType TreeLeftNode(CBTType treeNode){
+		if(treeNode!=null){
+			return treeNode.left;
+		}else{
+			return null;
+		}
+	}
+	
+	/**
+	 * 获取右子树
+	 */
+	CBTType TreeRightNode(CBTType treeNode){
+		if(treeNode!=null){
+			return treeNode.right;
+		}else{
+			return null;
+		}
+	}
+	
+	/**
+	 * 判断空树
+	 */
+	int TreeIsEmpty(CBTType treeNode){
+		if(treeNode!=null){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+	
+	/**
+	 * 计算二叉树的深度
+	 */
+	
+	
 }
